@@ -9,6 +9,10 @@ class TodosController < ApplicationController
     end
   end
 
+  def edit
+    @todo = Todo.find(params[:id])
+  end
+
   def create
     @todo = Todo.new(todo_params)
     @todo.save
@@ -17,8 +21,6 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find(params[:id])
     @todo.update_attributes(todo_params)
-
-    redirect_to todos_path
   end
 
   def destroy
